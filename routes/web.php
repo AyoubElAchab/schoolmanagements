@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\FormationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('etudiant',EtudiantController::class);
+Route::resource('classe',ClasseController::class);
+Route::resource('formation', FormationController::class);
+
+Route::get('/rechercher',[FormationController::class,'rechercher']);
+Route::get('/formations/search',[FormationController::class,'search']);
+
